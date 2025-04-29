@@ -5,6 +5,10 @@
     <IsTestProject>false</IsTestProject>
     <IsPackable>true</IsPackable>
     <Description>Contains testing utilities for Spectre.Console.</Description>
+    <PackageProjectUrl>https://github.com/mlad/spectre.console</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mlad/spectre.console</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/mlad/spectre.console/releases</PackageReleaseNotes>
+    <PackageId>mlad.Fork.Spectre.Console.Testing</PackageId>
   </PropertyGroup>
 
   <ItemGroup Label="REMOVE THIS">
@@ -13,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup Label="Project References">
-    <ProjectReference Include="..\Spectre.Console.Cli\Spectre.Console.Cli.csproj" />
     <ProjectReference Include="..\Spectre.Console\Spectre.Console.csproj" />
   </ItemGroup>
 

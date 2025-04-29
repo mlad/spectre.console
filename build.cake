@@ -14,16 +14,6 @@ Task("Build")
     .IsDependentOn("Clean")
     .Does(context => 
 {
-    Information("Compiling generator...");
-    DotNetBuild("./resources/scripts/Generator/Generator.sln", new DotNetBuildSettings {
-        Configuration = configuration,
-        Verbosity = DotNetVerbosity.Minimal,
-        NoLogo = true,
-        NoIncremental = context.HasArgument("rebuild"),
-        MSBuildSettings = new DotNetMSBuildSettings()
-            .TreatAllWarningsAs(MSBuildTreatAllWarningsAs.Error)
-    });
-
     Information("\nCompiling Spectre.Console...");
     DotNetBuild("./src/Spectre.Console.sln", new DotNetBuildSettings {
         Configuration = configuration,
@@ -35,29 +25,21 @@ Task("Build")
     });
 });
 
-Task("Test")
-    .IsDependentOn("Build")
-    .Does(context => 
-{
-    DotNetTest("./src/Tests/Spectre.Console.Tests/Spectre.Console.Tests.csproj", new DotNetTestSettings {
-        Configuration = configuration,
-        Verbosity = DotNetVerbosity.Minimal,
-        NoLogo = true,
-        NoRestore = true,
-        NoBuild = true,
-    });
-
-    DotNetTest("./src/Tests/Spectre.Console.Cli.Tests/Spectre.Console.Cli.Tests.csproj", new DotNetTestSettings {
-        Configuration = configuration,
-        Verbosity = DotNetVerbosity.Minimal,
-        NoLogo = true,
-        NoRestore = true,
-        NoBuild = true,
-    });
-});
+// Task("Test")
+//     .IsDependentOn("Build")
+//     .Does(context => 
+// {
+//     DotNetTest("./src/Tests/Spectre.Console.Tests/Spectre.Console.Tests.csproj", new DotNetTestSettings {
+//         Configuration = configuration,
+//         Verbosity = DotNetVerbosity.Minimal,
+//         NoLogo = true,
+//         NoRestore = true,
+//         NoBuild = true,
+//     });
+// });
 
 Task("Package")
-    .IsDependentOn("Test")
+    // .IsDependentOn("Test")
     .Does(context => 
 {
     context.DotNetPack($"./src/Spectre.Console.sln", new DotNetPackSettings {

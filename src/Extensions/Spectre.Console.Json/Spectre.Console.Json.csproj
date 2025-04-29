@@ -5,6 +5,10 @@
     <ImplicitUsings>true</ImplicitUsings>
     <IsPackable>true</IsPackable>
     <Description>A library that extends Spectre.Console with JSON superpowers.</Description>
+    <PackageId>mlad.Fork.Spectre.Console.Json</PackageId>
+    <PackageProjectUrl>https://github.com/mlad/spectre.console</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mlad/spectre.console</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/mlad/spectre.console/releases</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup>
     <IsAotCompatible Condition="'$(TargetFramework)' != 'netstandard2.0'" >true</IsAotCompatible>
